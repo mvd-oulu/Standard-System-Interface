@@ -6,10 +6,10 @@ authors:
   orcid: "https://orcid.org/0000-0002-8420-7062"
 - family-names: "Iiso"
   given-names: "Kramsu"
-  orcid: ""
+  orcid: "https://orcid.org/0009-0004-9126-4112"
 - family-names: "Könnö"
   given-names: "Juho"
-  orcid: "https://orcid.org/0000-0002-8420-7062"
+  orcid: ""
 title: "Standard-System-Interface"
 version: 1.0.0
 doi: 10.5281/zenodo.1234
