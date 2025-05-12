@@ -13,3 +13,5 @@ dependencies:
   - xmltodict # XML parsing
   - pytest # For testing
   - pip # Ensures pip is available in the environment
+- name: Zenodo upload
+  uses: megasanjay/upload-to-zenodo@v2.0.1
