@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Example System" generationTool="Example Generation Tool" generationDateAndTime="2025-05-12T11:00:49.285264+00:00" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP/1.0/SystemStructureDescription.xsd">
+    <ssd:System name="Example System">
+        <ssd:Elements>
+            <ssd:Component name="mass_1dof" type="application/x-fmu-sharedlibrary" source="resources/mass_1dof.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="f" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="fDrive" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="s" kind="input">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="v" kind="input">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="a" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+            <ssd:Component name="springdamper" type="application/x-fmu-sharedlibrary" source="resources/springdamper.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="f1" kind="input">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="s1" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="v1" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+        </ssd:Elements>
+        <ssd:Connections>
+            <ssd:Connection startElement="mass_1dof" startConnector="f" endElement="springdamper" endConnector="f1"/>
+            <ssd:Connection startElement="springdamper" startConnector="s1" endElement="mass_1dof" endConnector="s"/>
+            <ssd:Connection startElement="springdamper" startConnector="v1" endElement="mass_1dof" endConnector="v"/>
+        </ssd:Connections>
+    </ssd:System>
+    <ssd:DefaultExperiment startTime="0.0" stopTime="10.0"/>
+</ssd:SystemStructureDescription>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Example System" generationTool="Example Generation Tool" generationDateAndTime="2025-05-07T12:03:09.863102+00:00" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP/1.0/SystemStructureDescription.xsd">
+<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Example System" generationTool="Example Generation Tool" generationDateAndTime="2025-05-12T09:12:17.955005+00:00" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP/1.0/SystemStructureDescription.xsd">
     <ssd:System name="Example System">
         <ssd:Elements>
             <ssd:Component name="vehicle_p4" type="application/x-fmu-sharedlibrary" source="resources/vehicle_p4.fmu">
@@ -35,9 +35,12 @@
                     <ssd:Connector name="eng_ld_sgn_in" kind="input">
                         <ssc:Real unit="[-]"/>
                     </ssd:Connector>
+                    <ssd:Connector name="eng_fuel_consumption" kind="output">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
                 </ssd:Connectors>
             </ssd:Component>
-            <ssd:Component name="motor" type="application/x-fmu-sharedlibrary" source="resources/em_p4.fmu">
+            <ssd:Component name="motor" type="application/x-fmu-sharedlibrary" source="resources/em.fmu">
                 <ssd:Connectors>
                     <ssd:Connector name="mtr_trq_out" kind="output">
                         <ssc:Real unit="[-]"/>
@@ -56,7 +59,7 @@
                     </ssd:Connector>
                 </ssd:Connectors>
             </ssd:Component>
-            <ssd:Component name="bat" type="application/x-fmu-sharedlibrary" source="resources/bat_p4.fmu">
+            <ssd:Component name="bat" type="application/x-fmu-sharedlibrary" source="resources/bat.fmu">
                 <ssd:Connectors>
                     <ssd:Connector name="vol_out" kind="output">
                         <ssc:Real unit="[-]"/>
@@ -80,9 +83,6 @@
                     <ssd:Connector name="vehicle_vel" kind="input">
                         <ssc:Real unit="[-]"/>
                     </ssd:Connector>
-                    <ssd:Connector name="soc_in" kind="input">
-                        <ssc:Real unit="[-]"/>
-                    </ssd:Connector>
                     <ssd:Connector name="load_in" kind="input">
                         <ssc:Real unit="[-]"/>
                     </ssd:Connector>
@@ -100,7 +100,6 @@
             <ssd:Connection startElement="bat" startConnector="bat.vol_out" endElement="motor" endConnector="motor.vol_in"/>
             <ssd:Connection startElement="motor" startConnector="motor.cur_out" endElement="bat" endConnector="bat.cur_in"/>
             <ssd:Connection startElement="ctrl" startConnector="ctrl.mtr_ld_sgn_out" endElement="motor" endConnector="motor.mtr_ld_sgn_in"/>
-            <ssd:Connection startElement="bat" startConnector="bat.soc_out" endElement="ctrl" endConnector="ctrl.soc_in"/>
         </ssd:Connections>
     </ssd:System>
     <ssd:DefaultExperiment startTime="0.0" stopTime="10.0"/>

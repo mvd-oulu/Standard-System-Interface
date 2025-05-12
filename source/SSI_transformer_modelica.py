@@ -566,8 +566,10 @@ def create_ssp_file(output_file, components, connections, component_info, connec
         end_element_new_name = name_mapping.get(end_element, end_element)
 
         # Update the startConnector and endConnector to include the new names as prefixes
-        start_connector_full = f"{start_element_new_name}.{start_connector}"
-        end_connector_full = f"{end_element_new_name}.{end_connector}"
+        #start_connector_full = f"{start_element_new_name}.{start_connector}"
+        start_connector_full = f"{start_connector}" #dedicated to modelica
+        #end_connector_full = f"{end_element_new_name}.{end_connector}"
+        end_connector_full = f"{end_connector}"#dedicated to modelica
 
         ET.SubElement(connections_el, 'ssd:Connection', {
             'startElement': start_element_new_name,

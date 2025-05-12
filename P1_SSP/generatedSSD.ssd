@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Example System" generationTool="Example Generation Tool" generationDateAndTime="2025-05-07T12:20:56.146683+00:00" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP/1.0/SystemStructureDescription.xsd">
+<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Example System" generationTool="Example Generation Tool" generationDateAndTime="2025-05-12T09:01:08.425461+00:00" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP/1.0/SystemStructureDescription.xsd">
     <ssd:System name="Example System">
         <ssd:Elements>
             <ssd:Component name="vehicle_p1" type="application/x-fmu-sharedlibrary" source="resources/vehicle_p1.fmu">
@@ -33,6 +33,9 @@
                         <ssc:Real unit="[-]"/>
                     </ssd:Connector>
                     <ssd:Connector name="eng_ld_sgn_in" kind="input">
+                        <ssc:Real unit="[-]"/>
+                    </ssd:Connector>
+                    <ssd:Connector name="eng_fuel_consumption" kind="output">
                         <ssc:Real unit="[-]"/>
                     </ssd:Connector>
                 </ssd:Connectors>
