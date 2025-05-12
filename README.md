@@ -38,56 +38,20 @@ You can verify that the environment has been set up correctly by checking the in
 
 Now that the environment is set up, you can run the application or scripts within this repository.
 
-In the Thesis usecases folder:
-### 1. Run the BindingConnectors SysMLV2 parser
-
-To run the BindingConnectors SysMLV2 parser, follow these steps:
-
-1. Navigate to the **src/parser** directory
-2. Run the parser script: "**python binding_connectors_to_ssd_parser.py**"
-
-This will parse the SysMLV2 binding connectors .txt file and generate the corresponding SSD file.
-
-### 2. Run the PyFMI Simulation with Manual or SSD Parsed Model Connections
-
-To run the PyFMI simulation, you can either manually connect FMUs or use the already parsed connections from SSD file. Follow these steps:
-
-1. Navigate to the **src/simulation** directory
-2. Run the PyFMI simulation script: "**python pyfmi_simulation_gui.py**"
-
-In the Graphical User-Interface, you can load FMUs, manually connect them or load an SSD file with predefined connections, set initial conditions, and run the simulation. The results will be displayed within the GUI.
-
-In the Paper usecases folder:
 ### 1. Run the SSI transformer 
-Open the source folder and run the .py file from there. Locate the interface_definition.sysml and system_definition.syml files from wither sec 3 or sec 4 folder.
+Open the source folder and run the SSI_transformer.py file from there. Locate the interface_definition.sysml and system_definition.syml files from wither sec 3 or sec 4 folder.
 
-NOTE: to successfully run the models and simulation the name of the 'em' part should be change to 'motor' in the SSI transformer GUI tab. This name difference is set intentionally to test and demonstrate the name change functionality of the code.
+NOTE: to successfully run the models and simulation, the name of the 'em' part should be changed to 'motor' in the SSI transformer GUI tab. This name difference is set intentionally to test and demonstrate the name change functionality of the code.
 ### 2. Run the SSI simulator with Manual or SSD Parsed Model Connections
 
-To run the PyFMI simulation, you can either manually connect FMUs or use the already parsed connections from SSD file. The simulations and the their generated SSD files are stored in "P1_SSP" and "P2_SSP" folders.
+To run the PyFMI simulation, you can either manually connect FMUs or use the already parsed connections from SSD file. The simulations and the their generated SSD files are stored in "P1_SSP" and "P2_SSP" folders. The simulator can be utilized for other FMU, and it is not limited to SSI transformer-generated SSD as long as the license for FMUs is available. 
 
-Note: To run these simulation AVL license is required.
+Note: To run these simulations AVL license is required.
 
-In the Thesis usecases folder:
+Note: A license-free, simple spring damper model is provided in "EXTRA/modelica". Due to different methods in FMU generation, the SSI_transformer of modelica-based simulations is slightly different. The suitable transformer can be found in "source/SSI_transformer_modelica.py"
 
-## Running Tests
+## EXTRA folder
 
-This project includes a set of unit tests to ensure the correctness of the code. The tests can be run either all at once or individually.
+In the EXTRA folder, a jyputer notebook sysml model demonstrating a lack of proper port cross-check is stored. As explained in the article, a separate cross-checking logic has been added to the transformer. This file is provided as a reference to check this functionality, a separate .sysml file should be extracted from he given Jyputer file for cross-checking. 
 
-### 1. Running All Tests at Once
-
-You can run all tests using the unittest module with the following command:
-
-**python -m unittest**
-
-This command will run automatically discover and run all test files in the tests directory.
-
-### 2. Running Individual Tests
-
-To run a single test file, you can specify the test file in the command. For example, to run the tests in test_connection_dialog.py, use:
-
-**python -m unittest tests.test_connection_dialog**
-
-### 3. Viewing Test Results
-
-Unittest will provide a summary of the test results in the console.
+In the modelica subfolder, SysML models and the needed simulation for a mass-spring-damper model are given. The simulations are made in Modelica, so no license is needed for running the simulations. The SysML models are made following SSI workflow.
