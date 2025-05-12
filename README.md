@@ -39,7 +39,7 @@ You can verify that the environment has been set up correctly by checking the in
 Now that the environment is set up, you can run the application or scripts within this repository.
 
 ### 1. Run the SSI transformer 
-Open the source folder and run the SSI_transformer.py file from there. Locate the interface_definition.sysml and system_definition.syml files from wither sec 3 or sec 4 folder.
+Open the source folder and run the "SSI_transformer.py" file from there. Locate the "interface_definition.sysml" and "system_definition.syml" files from either "sec3" or "sec4" folder.
 
 NOTE: to successfully run the models and simulation, the name of the 'em' part should be changed to 'motor' in the SSI transformer GUI tab. This name difference is set intentionally to test and demonstrate the name change functionality of the code.
 ### 2. Run the SSI simulator with Manual or SSD Parsed Model Connections
@@ -48,7 +48,7 @@ To run the PyFMI simulation, you can either manually connect FMUs or use the alr
 
 Note: To run these simulations AVL license is required.
 
-Note: A license-free, simple spring damper model is provided in "EXTRA/modelica". Due to different methods in FMU generation, the SSI_transformer of modelica-based simulations is slightly different. The suitable transformer can be found in "source/SSI_transformer_modelica.py"
+Note: A license-free, simple spring damper model is provided in "EXTRA/modelica". Due to the different methods used in FMU generation, the SSI_transformer in Modelica-based simulations is somewhat different. The suitable transformer can be found in "source/SSI_transformer_modelica.py"
 
 ## EXTRA folder
 
